@@ -1,1 +1,0 @@
-Please see the releases page on github https://github.com/terl/lazysodium-java/releases

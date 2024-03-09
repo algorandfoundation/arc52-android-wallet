@@ -7,13 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.algorandfoundation.arc52_android_wallet.databinding.FragmentFirstBinding
+
+import com.goterl.lazysodium.LazySodiumAndroid
+import com.goterl.lazysodium.SodiumAndroid
+
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
 class FirstFragment : Fragment() {
 
     private var _binding: FragmentFirstBinding? = null
-
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -22,6 +25,10 @@ class FirstFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        val ls = LazySodiumAndroid(SodiumAndroid())
+        val p = ls.cryptoSignKeypair()
+        println("pair: ${p.secretKey} ${p.publicKey}")
 
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
         return binding.root
