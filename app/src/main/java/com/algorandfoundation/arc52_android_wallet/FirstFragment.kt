@@ -1,6 +1,7 @@
 package com.algorandfoundation.arc52_android_wallet
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -28,8 +29,8 @@ class FirstFragment : Fragment() {
 
         val ls = LazySodiumAndroid(SodiumAndroid())
         val p = ls.cryptoSignKeypair()
-        println("pair: ${p.secretKey} ${p.publicKey}")
-
+        Log.d("sk key", p.secretKey.asHexString)
+        Log.d("pk key", p.publicKey.asHexString)
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
         return binding.root
 
