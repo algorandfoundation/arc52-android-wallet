@@ -39,8 +39,8 @@ android {
             java {
                 srcDir '../lazysodium-java/src/main/java'
                 exclude 'com/goterl/lazysodium/utils/LibraryLoader.java'
-                exclude 'com/goterl/lazysodium/SodiumJava.java'
-                exclude 'com/goterl/lazysodium/LazySodiumJava.java'
+                exclude 'com/goterl/lazysodium/utils/SodiumJava'
+                exclude 'com/goterl/lazysodium/utils/LazySodiumJava'
             }
         }
     }
@@ -56,13 +56,11 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.7.7'
     implementation 'cash.z.ecc.android:kotlin-bip39:1.0.7'
     implementation 'net.java.dev.jna:jna:5.14.0@aar' // JNA Library for LibSodium Binaries
-    implementation files('libs/bip32ed25519-0.1.0.jar')
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
     // For Hardcoded Bip32Ed25519
-/*
     // For data validation
     implementation("net.pwall.json:json-kotlin-schema:0.46")
     implementation("com.algorand:algosdk:2.4.0")
@@ -75,5 +73,4 @@ dependencies {
     implementation("com.fasterxml.jackson.core:jackson-core:2.16.1")
     implementation("org.msgpack:jackson-dataformat-msgpack:0.9.8")
     implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-cbor:2.16.1")
- */
 }

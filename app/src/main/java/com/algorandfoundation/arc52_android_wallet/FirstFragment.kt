@@ -8,14 +8,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import bip32ed25519.Bip32Ed25519
+import bip32ed25519.Bip32Ed25519Android
 import bip32ed25519.KeyContext
 import cash.z.ecc.android.bip39.Mnemonics.MnemonicCode
 import cash.z.ecc.android.bip39.toSeed
 import com.algorandfoundation.arc52_android_wallet.databinding.FragmentFirstBinding
 import com.goterl.lazysodium.LazySodiumAndroid
 import com.goterl.lazysodium.SodiumAndroid
-import com.goterl.lazysodium.utils.HexMessageEncoder
-import java.nio.charset.StandardCharsets
 
 /** A simple [Fragment] subclass as the default destination in the navigation. */
 class FirstFragment : Fragment() {
@@ -36,9 +35,7 @@ class FirstFragment : Fragment() {
                 MnemonicCode(
                         "salon zoo engage submit smile frost later decide wing sight chaos renew lizard rely canal coral scene hobby scare step bus leaf tobacco slice".toCharArray()
                 )
-        val ls =
-                LazySodiumAndroid(SodiumAndroid("sodium"))
-        val c = Bip32Ed25519(ls, seed.toSeed())
+        val c = Bip32Ed25519Android(seed.toSeed())
         val pk = c.keyGen(KeyContext.Address, 0u, 0u, 0u)
         Log.d("public key:", pk.toString())
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
