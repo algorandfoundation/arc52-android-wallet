@@ -60,9 +60,6 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
-    // We need bouncy castle to compensate for the fact that Android lacks access to HMAC 512/256
-    implementation 'org.bouncycastle:bcprov-jdk15on:1.70'
-
     // For Hardcoded Bip32Ed25519
 
     // For data validation

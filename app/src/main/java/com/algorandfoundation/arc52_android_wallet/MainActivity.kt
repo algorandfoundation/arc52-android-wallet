@@ -10,6 +10,9 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
 import com.algorandfoundation.arc52_android_wallet.databinding.ActivityMainBinding
+import org.bouncycastle.jce.provider.BouncyCastleProvider
+import java.security.Security
+import java.security.Security.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,6 +21,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // We need to
+        removeProvider("BC");
+        insertProviderAt(BouncyCastleProvider(), 0);
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
