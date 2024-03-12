@@ -32,8 +32,24 @@ import java.security.MessageDigest
 import java.util.Base64
 import javax.crypto.Mac
 import javax.crypto.spec.SecretKeySpec
+import net.pwall.json.schema.JSONSchema
 import org.msgpack.jackson.dataformat.MessagePackFactory
 
+enum class KeyContext(val value: Int) {
+    Address(0),
+    Identity(1),
+}
+
+enum class Encoding {
+    CBOR,
+    MSGPACK,
+    BASE64,
+    NONE
+}
+
+class DataValidationException(message: String) : Exception(message)
+
+data class SignMetadata(val encoding: Encoding, val schema: JSONSchema)
 class Bip32Ed25519Android(private var seed: ByteArray) {
     companion object {
         val lazySodium = LazySodiumAndroid(SodiumAndroid("sodium"))

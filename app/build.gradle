@@ -14,7 +14,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-     namespace "com.algorandfoundation.arc52_android_wallet"
+    namespace "com.algorandfoundation.arc52_android_wallet"
 
     buildTypes {
         release {
@@ -36,12 +36,12 @@ android {
     sourceSets {
         main {
             jniLibs.srcDirs = ['src/main/jniLibs']
-            java {
-                srcDir '../lazysodium-java/src/main/java'
-                exclude 'com/goterl/lazysodium/utils/LibraryLoader.java'
-                exclude 'com/goterl/lazysodium/utils/SodiumJava'
-                exclude 'com/goterl/lazysodium/utils/LazySodiumJava'
-            }
+//            java {
+//                srcDir '../lazysodium-java/src/main/java'
+//                exclude 'com/goterl/lazysodium/utils/LibraryLoader.java'
+//                exclude 'com/goterl/lazysodium/SodiumJava.java'
+//                exclude 'com/goterl/lazysodium/LazySodiumJava.java'
+//            }
         }
     }
 }
@@ -60,17 +60,22 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
-    // For Hardcoded Bip32Ed25519
-    // For data validation
-    implementation("net.pwall.json:json-kotlin-schema:0.46")
-    implementation("com.algorand:algosdk:2.4.0")
+    // We need bouncy castle to compensate for the fact that Android lacks access to HMAC 512/256
+    implementation 'org.bouncycastle:bcprov-jdk15on:1.70'
 
+    // For Hardcoded Bip32Ed25519
+
+    // For data validation
+    implementation 'net.pwall.json:json-kotlin-schema:0.46'
+    implementation 'com.algorand:algosdk:2.4.0'
+
+    implementation 'org.slf4j:slf4j-api:1.7.30'
     // https://mvnrepository.com/artifact/org.jetbrains.kotlinx
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:1.6.3")
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3"
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-core:1.6.3"
     // https://mvnrepository.com/artifact/com.fasterxml.jackson.core
-    implementation("com.fasterxml.jackson.core:jackson-databind:2.16.1")
-    implementation("com.fasterxml.jackson.core:jackson-core:2.16.1")
-    implementation("org.msgpack:jackson-dataformat-msgpack:0.9.8")
-    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-cbor:2.16.1")
+    implementation "com.fasterxml.jackson.core:jackson-databind:2.16.1"
+    implementation "com.fasterxml.jackson.core:jackson-core:2.16.1"
+    implementation "org.msgpack:jackson-dataformat-msgpack:0.9.8"
+    implementation "com.fasterxml.jackson.dataformat:jackson-dataformat-cbor:2.16.1"
 }
