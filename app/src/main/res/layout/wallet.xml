@@ -11,67 +11,116 @@
         android:layout_height="match_parent"
         android:padding="16dp">
 
-        <EditText
-            android:id="@+id/bip39WordsEditText"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:id="@+id/generateLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter Bip39 words"
-            android:inputType="text"
-            app:layout_constraintEnd_toStartOf="@+id/generateButton"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:orientation="horizontal"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/generateButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Generate"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <EditText
+                android:id="@+id/bip39WordsEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Enter Bip39 words"
+                android:inputType="text" />
 
-        <Spinner
-            android:id="@+id/keyContextSpinner"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bip39WordsEditText" />
+            <Button
+                android:id="@+id/generateButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Generate" />
+        </LinearLayout>
 
-        <EditText
-            android:id="@+id/accountNumberEditText"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:id="@+id/keyContextLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Account Number"
-            android:inputType="number"
-            android:text="0"
-            android:maxLength="10"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/keyContextSpinner" />
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/generateLayout">
 
-        <EditText
-            android:id="@+id/changeNumberEditText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="Change Number"
-            android:inputType="number"
-            android:text="0"
-            android:maxLength="10"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/accountNumberEditText" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Context:" />
 
-        <EditText
-            android:id="@+id/keyindexNumberEditText"
-            android:layout_width="0dp"
+            <Spinner
+                android:id="@+id/keyContextSpinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/accountNumberLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="keyindex Number"
-            android:inputType="number"
-            android:text="0"
-            android:maxLength="10"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/changeNumberEditText" />
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/keyContextLayout">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Account Index" />
+
+            <EditText
+                android:id="@+id/accountNumberEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:inputType="number"
+                android:text="0"
+                android:maxLength="10" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/changeNumberLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/accountNumberLayout">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Change Num" />
+
+            <EditText
+                android:id="@+id/changeNumberEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:inputType="number"
+                android:text="0"
+                android:maxLength="10" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/keyindexNumberLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/changeNumberLayout">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Key Index" />
+
+            <EditText
+                android:id="@+id/keyindexNumberEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:inputType="number"
+                android:text="0"
+                android:maxLength="10" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/algorandAddressTextView"
@@ -82,6 +131,6 @@
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/keyindexNumberEditText" />
+            app:layout_constraintTop_toBottomOf="@+id/keyindexNumberLayout" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
