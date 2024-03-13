@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp">
+        android:padding="16dp"> 
 
         <LinearLayout
             android:id="@+id/generateLayout"
@@ -24,6 +24,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:hint="Enter Bip39 words"
+                android:text="exact remain north lesson program series excess lava material second riot error boss planet brick rotate scrap army riot banner adult fashion casino bamboo"
                 android:inputType="text" />
 
             <Button
@@ -132,5 +133,116 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/keyindexNumberLayout" />
+
+        <View
+            android:id="@+id/separator1View"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintTop_toBottomOf="@+id/algorandAddressTextView"/>
+        
+        <LinearLayout
+        android:id="@+id/algoDLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/separator1View">
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:editable="false"
+            android:text="Set Algo Daemon Values!"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:id="@+id/algodApiUrlEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Algod API URL"
+            android:text="http://10.0.2.2"/>
+
+        <EditText
+            android:id="@+id/algodPortEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Port Number"
+            android:text="4001"
+            android:inputType="number"/>
+
+        <EditText
+            android:id="@+id/algodTokenEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Token"
+            android:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            android:inputType="text"
+            />
+
+    </LinearLayout>
+
+        <View
+            android:id="@+id/separator2View"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintTop_toBottomOf="@+id/algoDLayout"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/separator2View">
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:editable="false"
+            android:text="Compose a transaction!"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:id="@+id/receiverEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="7777777777777777777777777777777777777777777777777774MSJUVU"
+            android:hint="Receiver Algorand address"/>
+
+        <EditText
+            android:id="@+id/amountEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:hint="Amount"
+            android:inputType="number"/>
+
+        <EditText
+            android:id="@+id/noteEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Note"
+            android:text="Hello World!"
+            android:inputType="text"
+            android:maxLength="1024"/>
+
+        <Button
+            android:id="@+id/signPostButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign and Post Tx"/>
+        <TextView
+            android:id="@+id/statusTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        
+        <TextView
+            android:id="@+id/balanceTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:editable="false"
+            android:text="Algorand Balance will appear here"
+            android:textSize="12sp"/>
+
+    </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
