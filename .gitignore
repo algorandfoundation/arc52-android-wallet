@@ -27,6 +27,3 @@ replay_pid*
 !/app/src/main/jniLibs/.gitkeep
 
 .gradle/
-.gradle/*
-**/.gradle/
-**/.gradle/*
