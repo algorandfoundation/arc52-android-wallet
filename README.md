@@ -1,4 +1,4 @@
-# ARC-0052 Android Wallet Reference Implemntation
+# ARC-0052 Android Wallet Reference Implementation
 
 ## Setup
 
