@@ -113,7 +113,7 @@ class Wallet : Fragment() {
     }
 
     private fun setupBip39WordsEditText() {
-        binding.bip39WordsEditText.addTextChangedListener(
+        val textWatcher =
                 object : TextWatcher {
                     override fun afterTextChanged(s: Editable?) {
                         val words = s.toString()
@@ -164,7 +164,11 @@ class Wallet : Fragment() {
                             count: Int
                     ) {}
                 }
-        )
+
+        binding.bip39WordsEditText.addTextChangedListener(textWatcher)
+        binding.bip39WordsEditText.post {
+            textWatcher.afterTextChanged(binding.bip39WordsEditText.text)
+        }
     }
 
     private fun setupGenerateButton() {
@@ -176,7 +180,6 @@ class Wallet : Fragment() {
     }
 
     private fun setupKeyContextSpinner() {
-
         val keyContextOptions = KeyContext.values()
         val adapter =
                 ArrayAdapter(
