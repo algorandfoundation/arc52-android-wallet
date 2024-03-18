@@ -36,12 +36,6 @@ android {
     sourceSets {
         main {
             jniLibs.srcDirs = ['src/main/jniLibs']
-//            java {
-//                srcDir '../lazysodium-java/src/main/java'
-//                exclude 'com/goterl/lazysodium/utils/LibraryLoader.java'
-//                exclude 'com/goterl/lazysodium/SodiumJava.java'
-//                exclude 'com/goterl/lazysodium/LazySodiumJava.java'
-//            }
         }
     }
 }
