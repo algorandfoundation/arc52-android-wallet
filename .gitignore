@@ -23,10 +23,15 @@
 hs_err_pid*
 replay_pid*
 
-/app/src/main/jniLibs/*
-!/app/src/main/jniLibs/.gitkeep
-
+# gradle files
 .gradle/
 
 # ignore .aar
 *.aar
+
+# IntelliJ
+*.iml
+.idea/*
+misc.xml
+*/deploymentTargetDropDown.xml
+render.experimental.xml
