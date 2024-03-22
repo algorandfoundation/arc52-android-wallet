@@ -31,7 +31,7 @@ replay_pid*
 
 # IntelliJ
 *.iml
-.idea/*
+.idea
 misc.xml
 */deploymentTargetDropDown.xml
 render.experimental.xml
