@@ -27,3 +27,6 @@ replay_pid*
 !/app/src/main/jniLibs/.gitkeep
 
 .gradle/
+
+# ignore .aar
+*.aar
