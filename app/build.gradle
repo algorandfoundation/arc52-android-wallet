@@ -32,16 +32,10 @@ android {
     buildFeatures {
         viewBinding true
     }
-
-    sourceSets {
-        main {
-            jniLibs.srcDirs = ['src/main/jniLibs']
-        }
-    }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.aar'])
     implementation 'androidx.core:core-ktx:1.12.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.11.0'
@@ -54,19 +48,5 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
-    // For Hardcoded Bip32Ed25519
-
-    // For data validation
-    implementation 'net.pwall.json:json-kotlin-schema:0.46'
     implementation 'com.algorand:algosdk:2.4.0'
-
-    implementation 'org.slf4j:slf4j-api:1.7.30'
-    // https://mvnrepository.com/artifact/org.jetbrains.kotlinx
-    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3"
-    implementation "org.jetbrains.kotlinx:kotlinx-serialization-core:1.6.3"
-    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core
-    implementation "com.fasterxml.jackson.core:jackson-databind:2.16.1"
-    implementation "com.fasterxml.jackson.core:jackson-core:2.16.1"
-    implementation "org.msgpack:jackson-dataformat-msgpack:0.9.8"
-    implementation "com.fasterxml.jackson.dataformat:jackson-dataformat-cbor:2.16.1"
 }
