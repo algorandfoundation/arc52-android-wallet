@@ -17,5 +17,5 @@ git clone git@github.com:algorandfoundation/bip32-ed25519-kotlin.git
 cd bip32-ed25519-kotlin
 ./initialize.sh
 cd ..
-cp bip32-ed25519-kotlin/android/bip32ed25519/build/outputs/aar/*-release.aar arc52-android-wallet/app/libs/
+cp bip32-ed25519-kotlin/build/*-release.aar arc52-android-wallet/app/libs/
 ```

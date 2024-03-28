@@ -16,8 +16,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import bip32ed25519.Bip32Ed25519Android
-import bip32ed25519.KeyContext
+import com.algorandfoundation.bip32ed25519.Bip32Ed25519Android
+import com.algorandfoundation.bip32ed25519.KeyContext
 import cash.z.ecc.android.bip39.Mnemonics
 import cash.z.ecc.android.bip39.Mnemonics.MnemonicCode
 import cash.z.ecc.android.bip39.toSeed
