@@ -19,3 +19,9 @@ cd bip32-ed25519-kotlin
 cd ..
 cp bip32-ed25519-kotlin/build/*-release.aar arc52-android-wallet/app/libs/
 ```
+
+## Send a Transaction
+
+Note that the default seed `exact remain north lesson program series excess lava material second riot error boss planet brick rotate scrap army riot banner adult fashion casino bamboo` should NOT be used in production.
+
+However, for testing the app, this seed produces the Algorand address `I7V63MENRB7L4K53PQGYRFQFI7ZWXD3N53XIGP5THNNT6BSAYWBFYGX4DE`. Funding it in your default local algokit sandbox environment (the default algod this app references too) should allow the app to make a successful transaction. If you don't fund it the app will simply return fail rather than providing transaction id.

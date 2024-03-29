@@ -25,6 +25,8 @@ import com.algorand.algosdk.crypto.Address
 import com.algorand.algosdk.transaction.Transaction
 import com.algorand.algosdk.util.Encoder
 import com.algorand.algosdk.v2.client.common.AlgodClient
+import com.algorand.algosdk.crypto.Signature
+import com.algorand.algosdk.transaction.SignedTransaction
 import com.algorandfoundation.arc52_android_wallet.databinding.WalletBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -270,7 +272,28 @@ class Wallet : Fragment() {
                                 .noteUTF8(note)
                                 .build()
 
-                val stx = bip32Ed25519?.signAlgoTransaction(KeyContext.Address, 0u, 0u, 0u, tx)
+                val pkAddress = Address(bip32Ed25519?.keyGen(
+                    KeyContext.Address,
+                    0u,
+                    0u,
+                    0u,
+                ))
+                val txSig =
+                    Signature(
+                        bip32Ed25519?.signAlgoTransaction(
+                            KeyContext.Address,
+                            0u,
+                            0u,
+                            0u,
+                            tx.bytesToSign()
+                        )
+                    )
+
+                val stx = SignedTransaction(tx, txSig, tx.txID())
+
+                if (tx.sender != pkAddress) {
+                    stx.authAddr(pkAddress)
+                }
                 val stxBytes = Encoder.encodeToMsgPack(stx)
 
                 Log.d("stxBytes", stxBytes.toString())
