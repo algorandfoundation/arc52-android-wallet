@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.algorandfoundation.arc52_android_wallet"
-        minSdkVersion 34
+        minSdkVersion 29
         targetSdkVersion 34
         versionCode 1
         versionName "1.0"
