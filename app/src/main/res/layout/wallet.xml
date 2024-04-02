@@ -134,59 +134,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/keyindexNumberLayout" />
 
-        <View
-            android:id="@+id/separator1View"
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:background="@android:color/darker_gray"
-            app:layout_constraintTop_toBottomOf="@+id/algorandAddressTextView"/>
-        
-        <LinearLayout
-        android:id="@+id/algoDLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/separator1View">
-        
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:editable="false"
-            android:text="Set Algo Daemon Values!"
-            android:textSize="18sp"/>
-
-        <EditText
-            android:id="@+id/algodApiUrlEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Algod API URL"
-            android:text="http://10.0.2.2"/>
-
-        <EditText
-            android:id="@+id/algodPortEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Port Number"
-            android:text="4001"
-            android:inputType="number"/>
-
-        <EditText
-            android:id="@+id/algodTokenEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Token"
-            android:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-            android:inputType="text"
-            />
-
-    </LinearLayout>
 
         <View
             android:id="@+id/separator2View"
             android:layout_width="match_parent"
             android:layout_height="20dp"
             android:background="@android:color/darker_gray"
-            app:layout_constraintTop_toBottomOf="@+id/algoDLayout"/>
+            app:layout_constraintTop_toBottomOf="@+id/algorandAddressTextView"/>
 
     <LinearLayout
         android:layout_width="match_parent"
