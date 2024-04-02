@@ -20,8 +20,27 @@ cd ..
 cp bip32-ed25519-kotlin/build/*-release.aar arc52-android-wallet/app/libs/
 ```
 
+## AlgoD
+
+The AlgoD Client parameters have been set to:
+
+```kotlin
+private val algoDClient =
+        AlgodClient(
+                "http://10.0.2.2",
+                4001,
+                "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        )
+```
+
+If you are running this app in an Android emulator on your computer, e.g. through Android Studio, this will correspond to port 4001 on your computer. If you've spun up a a localnet/sandbox with Algokit it will interact with it.
+
+```
+algokit localnet start
+```
+
 ## Send a Transaction
 
 Note that the default seed `exact remain north lesson program series excess lava material second riot error boss planet brick rotate scrap army riot banner adult fashion casino bamboo` should NOT be used in production.
 
-However, for testing the app, this seed produces the Algorand address `I7V63MENRB7L4K53PQGYRFQFI7ZWXD3N53XIGP5THNNT6BSAYWBFYGX4DE`. Funding it in your default local algokit sandbox environment (the default algod this app references too) should allow the app to make a successful transaction. If you don't fund it the app will simply return fail rather than providing transaction id.
+However, for testing the app, this seed produces the Algorand address `I7V63MENRB7L4K53PQGYRFQFI7ZWXD3N53XIGP5THNNT6BSAYWBFYGX4DE`. Funding it in your environment should allow the app to make a successful transaction and return the transaction id. If you don't fund it the app will simply return fail rather than providing transaction id.
