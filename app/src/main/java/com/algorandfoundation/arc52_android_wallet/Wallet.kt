@@ -16,8 +16,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.algorandfoundation.bip32ed25519.Bip32Ed25519Android
-import com.algorandfoundation.bip32ed25519.KeyContext
+import com.algorandfoundation.xhdwalletapi.XHDWalletAPIAndroid
+import com.algorandfoundation.xhdwalletapi.KeyContext
 import cash.z.ecc.android.bip39.Mnemonics
 import cash.z.ecc.android.bip39.Mnemonics.MnemonicCode
 import cash.z.ecc.android.bip39.toSeed
@@ -40,7 +40,7 @@ class Wallet : Fragment() {
         get() = _binding!!
     private val viewModel: WalletViewModel by viewModels()
 
-    private var bip32Ed25519: Bip32Ed25519Android? = null
+    private var xHDWalletAPI: XHDWalletAPIAndroid? = null
     private val algoDClient =
             AlgodClient(
                     "http://10.0.2.2",
@@ -69,7 +69,7 @@ class Wallet : Fragment() {
                                                     parseTextInput(binding.changeNumberEditText),
                                                     parseTextInput(binding.keyindexNumberEditText)
                                             ),
-                                    bip32Ed25519 = bip32Ed25519
+                                xHDWalletAPI = xHDWalletAPI
                             )
                             viewModel.isProgrammaticChange = false
                         }
@@ -134,7 +134,7 @@ class Wallet : Fragment() {
                             binding.bip39WordsEditText.backgroundTintList =
                                     ColorStateList.valueOf(Color.GREEN)
 
-                            bip32Ed25519 = Bip32Ed25519Android(m.toSeed())
+                            xHDWalletAPI = XHDWalletAPIAndroid(m.toSeed())
                             viewModel.updateAlgorandAddress(
                                     keyContext =
                                             binding.keyContextSpinner.selectedItem as KeyContext,
@@ -144,7 +144,7 @@ class Wallet : Fragment() {
                                                     parseTextInput(binding.changeNumberEditText),
                                                     parseTextInput(binding.keyindexNumberEditText)
                                             ),
-                                    bip32Ed25519 = bip32Ed25519
+                                xHDWalletAPI = xHDWalletAPI
                             )
                         } else {
                             // The seed phrase is invalid
@@ -208,7 +208,7 @@ class Wallet : Fragment() {
                                                 parseTextInput(binding.changeNumberEditText),
                                                 parseTextInput(binding.keyindexNumberEditText)
                                         ),
-                                bip32Ed25519 = bip32Ed25519
+                            xHDWalletAPI = xHDWalletAPI
                         )
                     }
 
@@ -264,7 +264,7 @@ class Wallet : Fragment() {
                                 .lookupParams(algoDClient) // lookup fee, firstValid, lastValid
                                 .sender(
                                         Address(
-                                                bip32Ed25519?.keyGen(KeyContext.Address, 0u, 0u, 0u)
+                                            xHDWalletAPI?.keyGen(KeyContext.Address, 0u, 0u, 0u)
                                         )
                                 )
                                 .receiver(receiverAddress)
@@ -272,7 +272,7 @@ class Wallet : Fragment() {
                                 .noteUTF8(note)
                                 .build()
 
-                val pkAddress = Address(bip32Ed25519?.keyGen(
+                val pkAddress = Address(xHDWalletAPI?.keyGen(
                     KeyContext.Address,
                     0u,
                     0u,
@@ -280,7 +280,7 @@ class Wallet : Fragment() {
                 ))
                 val txSig =
                     Signature(
-                        bip32Ed25519?.signAlgoTransaction(
+                        xHDWalletAPI?.signAlgoTransaction(
                             KeyContext.Address,
                             0u,
                             0u,
@@ -348,17 +348,17 @@ class WalletViewModel : ViewModel() {
     fun updateAlgorandAddress(
             keyContext: KeyContext,
             numbers: List<Long>,
-            bip32Ed25519: Bip32Ed25519Android?
+            xHDWalletAPI: XHDWalletAPIAndroid?
     ) {
         // Let's make sure it's not null, which it is at the start
-        if (bip32Ed25519 == null) {
+        if (xHDWalletAPI == null) {
             return
         }
 
         // Produce the PK and turn it into an Algorand formatted address
         val algoAddress =
                 Address(
-                        bip32Ed25519.keyGen(
+                    xHDWalletAPI.keyGen(
                                 keyContext,
                                 numbers[0].toUInt(),
                                 numbers[1].toUInt(),

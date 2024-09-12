@@ -3,9 +3,9 @@
 ## Setup
 
 - clone this repository.
-- clone https://github.com/algorandfoundation/bip32-ed25519-kotlin
-- Navigate into bip32-ed25519-kotlin and run ./initialize.sh, which will setup the repo with the underlying lazysodium-java (Algorand Foundation fork) git submodule, run builds for android and desktop version before putting the outputed files under dist/.
-- Copy the .aar file under bip32-ed25519-kotlin/dist/android/.
+- clone https://github.com/algorandfoundation/xHD-Wallet-API-kt
+- Navigate into xHD-Wallet-API-kt and run ./initialize.sh, which will setup the repo with the underlying lazysodium-java (Algorand Foundation fork) git submodule, run builds for android and desktop version before putting the outputed files under dist/.
+- Copy the .aar file under xHD-Wallet-API-kt/dist/android/.
 - Paste it under arc52-android-wallet/app/libs/.
 - Open arc52-android-wallet in Android Studio, gradle sync and then run the app
 
@@ -13,11 +13,11 @@ As a bash script:
 
 ```bash
 git clone git@github.com:algorandfoundation/arc52-android-wallet.git
-git clone git@github.com:algorandfoundation/bip32-ed25519-kotlin.git
-cd bip32-ed25519-kotlin
+git clone git@github.com:algorandfoundation/xHD-Wallet-API-kt.git
+cd xHD-Wallet-API-kt
 ./initialize.sh
 cd ..
-cp bip32-ed25519-kotlin/build/*-release.aar arc52-android-wallet/app/libs/
+cp xHD-Wallet-API-kt/build/*-release.aar arc52-android-wallet/app/libs/
 ```
 
 ## AlgoD
