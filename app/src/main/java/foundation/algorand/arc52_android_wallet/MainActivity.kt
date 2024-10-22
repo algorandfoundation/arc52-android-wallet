@@ -1,4 +1,4 @@
-package com.algorandfoundation.arc52_android_wallet
+package foundation.algorand.arc52_android_wallet
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -6,7 +6,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
-import com.algorandfoundation.arc52_android_wallet.databinding.ActivityMainBinding
+import foundation.algorand.arc52_android_wallet.databinding.ActivityMainBinding
 import java.security.Security.*
 import org.bouncycastle.jce.provider.BouncyCastleProvider
 

@@ -1,4 +1,4 @@
-package com.algorandfoundation.arc52_android_wallet
+package foundation.algorand.arc52_android_wallet
 
 import android.content.res.ColorStateList
 import android.graphics.Color
@@ -16,8 +16,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.algorandfoundation.xhdwalletapi.XHDWalletAPIAndroid
-import com.algorandfoundation.xhdwalletapi.KeyContext
+import foundation.algorand.xhdwalletapi.XHDWalletAPIAndroid
+import foundation.algorand.xhdwalletapi.KeyContext
 import cash.z.ecc.android.bip39.Mnemonics
 import cash.z.ecc.android.bip39.Mnemonics.MnemonicCode
 import cash.z.ecc.android.bip39.toSeed
@@ -27,7 +27,7 @@ import com.algorand.algosdk.util.Encoder
 import com.algorand.algosdk.v2.client.common.AlgodClient
 import com.algorand.algosdk.crypto.Signature
 import com.algorand.algosdk.transaction.SignedTransaction
-import com.algorandfoundation.arc52_android_wallet.databinding.WalletBinding
+import foundation.algorand.arc52_android_wallet.databinding.WalletBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

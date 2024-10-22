@@ -1,24 +1,10 @@
 # ARC-0052 Android Wallet Reference Implementation
 
-## Setup
+# Setup
 
-- clone this repository.
-- clone https://github.com/algorandfoundation/xHD-Wallet-API-kt
-- Navigate into xHD-Wallet-API-kt and run ./initialize.sh, which will setup the repo with the underlying lazysodium-java (Algorand Foundation fork) git submodule, run builds for android and desktop version before putting the outputed files under dist/.
-- Copy the .aar file under xHD-Wallet-API-kt/dist/android/.
-- Paste it under arc52-android-wallet/app/libs/.
-- Open arc52-android-wallet in Android Studio, gradle sync and then run the app
+This library uses (and showcases) xHD-Wallet-API Kotlin library for Android.
 
-As a bash script:
-
-```bash
-git clone git@github.com:algorandfoundation/arc52-android-wallet.git
-git clone git@github.com:algorandfoundation/xHD-Wallet-API-kt.git
-cd xHD-Wallet-API-kt
-./initialize.sh
-cd ..
-cp xHD-Wallet-API-kt/build/*-release.aar arc52-android-wallet/app/libs/
-```
+Crucially, it also relies on `net.java.dev.jna` (@aar for the Android files) in order to have the Android app understand the path to the LibSodium binaries.
 
 ## AlgoD
 

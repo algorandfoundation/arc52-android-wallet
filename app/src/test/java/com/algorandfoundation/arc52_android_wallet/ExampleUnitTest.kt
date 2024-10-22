@@ -1,4 +1,4 @@
-package com.algorandfoundation.arc52_android_wallet
+package foundation.algorand.arc52_android_wallet
 
 import org.junit.Test
 

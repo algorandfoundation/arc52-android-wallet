@@ -5,7 +5,7 @@ android {
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.algorandfoundation.arc52_android_wallet"
+        applicationId "foundation.algorand.arc52_android_wallet"
         minSdkVersion 29
         targetSdkVersion 34
         versionCode 1
@@ -14,7 +14,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    namespace "com.algorandfoundation.arc52_android_wallet"
+    namespace "foundation.algorand.arc52_android_wallet"
 
     buildTypes {
         release {
@@ -35,18 +35,19 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.aar'])
     implementation 'androidx.core:core-ktx:1.12.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.11.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.7.7'
     implementation 'androidx.navigation:navigation-ui-ktx:2.7.7'
-    implementation 'cash.z.ecc.android:kotlin-bip39:1.0.7'
-    implementation 'net.java.dev.jna:jna:5.14.0@aar' // JNA Library for LibSodium Binaries
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
+    implementation 'cash.z.ecc.android:kotlin-bip39:1.0.7'
     implementation 'com.algorand:algosdk:2.4.0'
+    
+    implementation 'net.java.dev.jna:jna:5.14.0@aar' // JNA Library for LibSodium Binaries
+    implementation 'foundation.algorand.xhdwalletapi:xhdwalletapi-android:1.1.0'
 }
